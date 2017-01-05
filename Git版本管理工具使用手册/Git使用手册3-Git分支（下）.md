@@ -155,6 +155,35 @@
 这会给你一个用于工作的本地分支，并且起点位于 `origin/serverfix` 。
 
 
+**Debug：** *解决github push错误The requested URL returned error: 403 Forbidden while accessing*
+
+github push错误：
+
+
+    error: The requested URL returned error: 403 Forbidden while accessing https://github.com/changdapeng/zhuiyinggu.git/info/refs
+
+
+解决方案：
+修改
+
+
+    [remote "origin"]
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://github.com/changdapeng/zhuiyinggu.git
+
+
+为：
+
+
+    [remote "origin"]
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://changdapeng@github.com/changdapeng/zhuiyinggu.git
+
+然后重新push输入密码即可
+  
+
+
+
 ## 3. 跟踪分支
 ***
 
