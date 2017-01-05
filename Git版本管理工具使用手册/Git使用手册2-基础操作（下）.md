@@ -116,6 +116,35 @@
 只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。 当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送。
 
 
+**Debug：** *解决github push错误The requested URL returned error: 403 Forbidden while accessing*
+
+github push错误：
+
+
+    error: The requested URL returned error: 403 Forbidden while accessing https://github.com/changdapeng/zhuiyinggu.git/info/refs
+
+
+解决方案：
+修改
+
+
+    [remote "origin"]
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://github.com/changdapeng/zhuiyinggu.git
+
+
+为：
+
+
+    [remote "origin"]
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://changdapeng@github.com/changdapeng/zhuiyinggu.git
+
+然后重新push输入密码即可
+  
+
+
+
 ## 5. 查看远程仓库
 ***
 
